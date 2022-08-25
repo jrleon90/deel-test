@@ -40,7 +40,6 @@ class JobRepository {
     }
 
     getUnpaidJobsByContractId(contractId, transaction) {
-        console.log('ID', contractId);
         return new Promise((resolve, reject) => {
             this.job.findAll({
                 where: {

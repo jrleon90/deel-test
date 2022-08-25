@@ -90,7 +90,6 @@ app.get('/admin/best-clients', getProfile, async (req, res) => {
         const limit = req.query.limit ? req.query.limit : 2;
         const jobs = await jobRepository.getPaidJobs(start, end, transaction);
         const topClients = contractEntity.getTopClient(jobs, true, limit);
-        console.log(topClients);
         const topClientIds = topClients.map(x => x.clientId);
         const topClientsData = await profileRepository.getProfilesByIDs(topClientIds, transaction);
         await transaction.commit();
